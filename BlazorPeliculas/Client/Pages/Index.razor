@@ -1,0 +1,38 @@
+﻿@page "/"
+
+<div>
+    <h3>Peliculas</h3>
+    <ListadoPeliculas Peliculas="ObtenerPeliculas()"/>
+</div>
+
+@code {
+    string nombre = "Felipe";
+
+    private List<Pelicula> ObtenerPeliculas()
+    {
+        return new List<Pelicula>()
+            {
+                new Pelicula(){Titulo = "hola mundo", Lanzamiento =new DateTime (2012, 5, 2)},
+                new Pelicula(){Titulo = "hola 51mundo", Lanzamiento =new DateTime (2052, 5, 2)},
+                new Pelicula(){Titulo = "hola m52undo", Lanzamiento =new DateTime (2002, 5, 2)}
+            };
+    }
+
+
+    public Pelicula tunombre { get { return ObtenerPelicula(); } }
+    
+    private Pelicula ObtenerPelicula()
+    {
+        return new Pelicula()
+            {
+                Titulo = "hola desde aqui",
+                Lanzamiento = new DateTime(2021, 8, 2)
+            };
+    }
+
+    private void manejarClick()
+    {
+        Console.WriteLine("Me han clickeado desde (metodo)");
+    }
+
+}
