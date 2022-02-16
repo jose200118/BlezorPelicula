@@ -1,7 +1,6 @@
 ﻿  @if (Peliculas == null)
 {
-    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
-    <text> Cargando....</text>
+    @ChildContent
 }
 else if (Peliculas.Count == 0)
 {
@@ -10,17 +9,23 @@ else if (Peliculas.Count == 0)
 
 else
 {
-       <input type="checkbox" @onchange="@(() => MostrarBotones = !MostrarBotones )"/>
+       <input type="checkbox" @bind="MostrarBotones"/>
     @foreach (var pelicula in Peliculas)
     {
-        <PeliculaIndividual Pelicula="pelicula" MostrarBotones="MostrarBotones" />
+        <PeliculaIndividual Pelicula="pelicula" ElininarPelicula="ElinumarPelicula"
+        MostrarBotones="MostrarBotones" />
     }
 }
 
 @code {
 
     [Parameter] public List<Pelicula> Peliculas { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
     bool MostrarBotones = false;
 
-
+    void ElinumarPelicula(Pelicula pelicula)
+    {
+        Peliculas.Remove(pelicula);
+        Console.WriteLine($"Se ha eliminado una pelicula {pelicula.Titulo}");
+    }
 }
