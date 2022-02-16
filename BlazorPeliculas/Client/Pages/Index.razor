@@ -3,11 +3,9 @@
 <div>
     <h3>Peliculas</h3>
     <ListadoPeliculas Peliculas="ObtenerPeliculas()">
-    
+    <span style="color:red">No hay peliculas¡</span>
     </ListadoPeliculas>
 
-    <div> <h1> hoja</h1></div>
-        <div> <h3> hoja</h3></div>
 </div>
 
 @code {
@@ -15,12 +13,13 @@
 
     private List<Pelicula> ObtenerPeliculas()
     {
-        return new List<Pelicula>()
-            {
-                new Pelicula(){Titulo = "hola mundo", Lanzamiento =new DateTime (2012, 5, 2)},
-                new Pelicula(){Titulo = "hola 51mundo", Lanzamiento =new DateTime (2052, 5, 2)},
-                new Pelicula(){Titulo = "hola m52undo", Lanzamiento =new DateTime (2002, 5, 2)}
-            };
+        return null;
+        //return new List<Pelicula>()
+        //    {
+        //        new Pelicula(){Titulo = "hola mundo", Lanzamiento =new DateTime (2012, 5, 2)},
+        //        new Pelicula(){Titulo = "hola 51mundo", Lanzamiento =new DateTime (2052, 5, 2)},
+        //        new Pelicula(){Titulo = "hola m52undo", Lanzamiento =new DateTime (2002, 5, 2)}
+        //    };
     }
 
 
